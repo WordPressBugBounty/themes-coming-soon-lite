@@ -528,6 +528,16 @@ function coming_soon_lite_customize_register( $wp_customize ) {
 		'type'		=> 'text'
 	));
 
+	$wp_customize->add_setting('coming_soon_lite_copyright_font_size',array(
+		'default' => '',
+		'sanitize_callback' => 'coming_soon_lite_sanitize_float'
+	));
+	$wp_customize->add_control('coming_soon_lite_copyright_font_size',array(
+		'type' => 'number',
+		'label' => __('Font Size','coming-soon-lite'),
+		'section' => 'coming_soon_lite_footer',
+	));
+
 	$wp_customize->add_setting('coming_soon_lite_copyright_padding',array(
 		'default' => '',
 		'sanitize_callback'	=> 'coming_soon_lite_sanitize_float'
