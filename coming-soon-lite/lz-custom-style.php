@@ -89,6 +89,13 @@
 	}
 
 	// Top color
+	$coming_soon_lite_top_bar_font_size = get_theme_mod('coming_soon_lite_top_bar_font_size');
+	if( $coming_soon_lite_top_bar_font_size != ''){
+		$coming_soon_lite_custom_style .=' .header-box span a, span.info {';
+			$coming_soon_lite_custom_style .=' font-size: '.esc_attr($coming_soon_lite_top_bar_font_size).'px;';
+		$coming_soon_lite_custom_style .=' }';
+	}
+
 	$coming_soon_lite_toptitle_color = get_theme_mod('coming_soon_lite_toptitle_color');
 	if( $coming_soon_lite_toptitle_color != ''){
 		$coming_soon_lite_custom_style .=' span.info {';
