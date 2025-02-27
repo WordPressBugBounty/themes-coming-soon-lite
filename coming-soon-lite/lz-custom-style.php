@@ -110,6 +110,13 @@
 		$coming_soon_lite_custom_style .=' }';
 	}
 
+	$coming_soon_lite_toptexthvr_color = get_theme_mod('coming_soon_lite_toptexthvr_color');
+	if( $coming_soon_lite_toptexthvr_color != ''){
+		$coming_soon_lite_custom_style .=' .header-box span a:hover {';
+			$coming_soon_lite_custom_style .=' color: '.esc_attr($coming_soon_lite_toptexthvr_color).';';
+		$coming_soon_lite_custom_style .=' }';
+	}
+
 	$coming_soon_lite_topbg_color1 = get_theme_mod('coming_soon_lite_topbg_color1');
 	$coming_soon_lite_topbg_color2 = get_theme_mod('coming_soon_lite_topbg_color2');
 
