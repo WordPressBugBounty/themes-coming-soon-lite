@@ -576,6 +576,15 @@ function coming_soon_lite_customize_register( $wp_customize ) {
 		'section' => 'coming_soon_lite_footer',
 	)));
 
+	$wp_customize->add_setting( 'coming_soon_lite_copyrightbdr_color', array(
+		'default' => '',
+		'sanitize_callback'	=> 'sanitize_hex_color'
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'coming_soon_lite_copyrightbdr_color', array(
+		'label' => __('Copyright Border Color', 'coming-soon-lite'),
+		'section' => 'coming_soon_lite_footer',
+	)));
+
 	$wp_customize->add_setting( 'coming_soon_lite_copyrightbg_color', array(
 		'default' => '',
 		'sanitize_callback'	=> 'sanitize_hex_color'

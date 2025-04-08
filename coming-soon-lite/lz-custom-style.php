@@ -65,6 +65,13 @@
 		$coming_soon_lite_custom_style .=' }';
 	}
 
+	$coming_soon_lite_copyrightbdr_color = get_theme_mod('coming_soon_lite_copyrightbdr_color');
+	if( $coming_soon_lite_copyrightbdr_color != ''){
+		$coming_soon_lite_custom_style .=' .site-info p:after {';
+			$coming_soon_lite_custom_style .=' border-color: '.esc_attr($coming_soon_lite_copyrightbdr_color).';';
+		$coming_soon_lite_custom_style .=' }';
+	}
+
 	$coming_soon_lite_copyrightbg_color = get_theme_mod('coming_soon_lite_copyrightbg_color');
 	if( $coming_soon_lite_copyrightbg_color != ''){
 		$coming_soon_lite_custom_style .=' .copyright {';
