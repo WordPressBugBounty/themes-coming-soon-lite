@@ -198,9 +198,9 @@ function coming_soon_lite_sanitize_phone_number( $phone ) {
 
 define('COMING_SOON_LITE_LIVE_DEMO',__('https://www.luzukdemo.com/demo/coming-soon/','coming-soon-lite'));
 define('COMING_SOON_LITE_PRO_DOCS',__('https://www.luzukdemo.com/docs/coming-soon/','coming-soon-lite'));
-define('COMING_SOON_LITE_BUY_NOW',__('https://www.luzuk.com/product/coming-soon-wordpress-theme/','coming-soon-lite'));
+define('COMING_SOON_LITE_BUY_NOW',__('https://www.luzuk.com/products/coming-soon-wordpress-theme/','coming-soon-lite'));
 define('COMING_SOON_LITE_SUPPORT',__('https://wordpress.org/support/theme/coming-soon-lite/','coming-soon-lite'));
-define('COMING_SOON_LITE_CREDIT',__('https://www.luzuk.com/themes/free-coming-soon-wordpress-theme/','coming-soon-lite'));
+define('COMING_SOON_LITE_CREDIT',__('https://www.luzuk.com/products/free-coming-soon-wordpress-theme/','coming-soon-lite'));
 
 if ( ! function_exists( 'coming_soon_lite_credit' ) ) {
 	function coming_soon_lite_credit(){

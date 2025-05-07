@@ -526,7 +526,7 @@ function coming_soon_lite_customize_register( $wp_customize ) {
 	) );
 
     $wp_customize->add_setting('coming_soon_lite_footer_link',array(
-		'default'	=> 'https://www.luzuk.com/themes/free-coming-soon-wordpress-theme/',
+		'default'	=> 'https://www.luzuk.com/products/free-coming-soon-wordpress-theme/',
 		'sanitize_callback'	=> 'sanitize_text_field'
 	));	
 	$wp_customize->add_control('coming_soon_lite_footer_link',array(
@@ -703,7 +703,7 @@ final class Coming_Soon_Lite_Customize {
 					'priority' => 9,
 					'title'    => esc_html__( 'Coming Soon Pro ', 'coming-soon-lite' ),
 					'pro_text' => esc_html__( 'Go Pro','coming-soon-lite' ),
-					'pro_url'  => esc_url( 'https://www.luzuk.com/product/coming-soon-wordpress-theme/' ),
+					'pro_url'  => esc_url( 'https://www.luzuk.com/products/coming-soon-wordpress-theme/' ),
 				)
 			)
 		);
