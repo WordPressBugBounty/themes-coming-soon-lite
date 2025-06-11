@@ -2,9 +2,9 @@
 Contributors: Luzuk
 Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, custom-colors, custom-background, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, full-width-template, threaded-comments, translation-ready, blog, e-commerce, portfolio
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 0.5.4
+Stable tag: 0.5.5
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -240,3 +240,6 @@ Coming Soon Lite bundles the following third-party resources:
 
 = 0.5.4 =
   - Fixed some errors.
+
+= 0.5.5 =
+  - Fixed critical errors.

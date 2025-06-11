@@ -61,7 +61,7 @@ get_header(); ?>
 				    <div class="carousel-inner" role="listbox">
 				      	<?php  while ( $query->have_posts() ) : $query->the_post(); ?>
 				        <div <?php if($i == 1){echo 'class="carousel-item active"';} else{ echo 'class="carousel-item"';}?>>
-				          	<img src="<?php esc_url(the_post_thumbnail_url('full')); ?>"/>
+				          <img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>" />
 				          	<?php
 							$coming_soon_lite_slider_effect = get_theme_mod('coming_soon_lite_slider_effect', '') 
 						?>
