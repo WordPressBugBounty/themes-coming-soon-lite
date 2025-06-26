@@ -72,7 +72,7 @@ function coming_soon_lite_activation_notice() {
 	echo '<div class="notice notice-success is-dismissible start-notice">';
 		echo '<h3>'. esc_html__( 'Welcome to Luzuk!!', 'coming-soon-lite' ) .'</h3>';
 		echo '<p>'. esc_html__( 'Thank you for choosing Coming Soon Lite theme. It will be our pleasure to have you on our Welcome page to serve you better.', 'coming-soon-lite' ) .'</p>';
-		echo '<p><a href="'. esc_url( admin_url( 'themes.php?page=coming_soon_lite_guide' ) ) .'" class="button button-primary">'. esc_html__( 'GET STARTED', 'coming-soon-lite' ) .'</a></p>';
+		echo '<p><a href="'. esc_url( admin_url( 'themes.php?page=themes-dashboard' ) ) .'" class="button button-primary">'. esc_html__( 'GET STARTED', 'coming-soon-lite' ) .'</a></p>';
 	echo '</div>';
 }
 
@@ -236,4 +236,123 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 require get_parent_theme_file_path( '/inc/customizer.php' );
 
-require get_parent_theme_file_path( '/inc/getting-started/getting-started.php' );
+add_action('admin_menu', 'coming_soon_lite_reorder_appearance_menu', 999);
+
+function coming_soon_lite_reorder_appearance_menu() {
+    global $submenu;
+
+    if (isset($submenu['themes.php'])) {
+        $themes_submenu = $submenu['themes.php'];
+
+        // Find and extract the Themes Dashboard item
+        foreach ($themes_submenu as $key => $item) {
+            if ($item[2] === 'themes-dashboard') {
+                $dashboard_item = $item;
+                unset($themes_submenu[$key]);
+                break;
+            }
+        }
+
+        // Re-index and add Themes Dashboard at the top
+        if (isset($dashboard_item)) {
+            $themes_submenu = array_values($themes_submenu); // reindex
+            array_unshift($themes_submenu, $dashboard_item);
+            $submenu['themes.php'] = $themes_submenu;
+        }
+    }
+}
+
+// Hook into current_screen to detect if we're on our custom page
+add_action('current_screen', 'coming_soon_lite_hide_admin_notices_on_custom_page');
+
+function coming_soon_lite_hide_admin_notices_on_custom_page($screen) {
+    // Check for our custom page slug
+    if ($screen->id === 'appearance_page_themes-dashboard') {
+        // Remove all actions that show admin notices
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+        remove_all_actions('network_admin_notices');
+    }
+}
+
+add_action('admin_menu', 'coming_soon_lite_add_themes_dashboard_menu');
+
+function coming_soon_lite_add_themes_dashboard_menu() {
+    add_theme_page(
+        'Themes Dashboard',
+        'Themes Dashboard',
+        'manage_options',
+        'themes-dashboard',
+        'coming_soon_lite_themes_dashboard_page'
+    );
+}
+
+function coming_soon_lite_themes_dashboard_page() {
+    echo coming_soon_lite_render_combined_dashboard();
+}
+
+function coming_soon_lite_render_combined_dashboard() {
+    $theme = wp_get_theme();
+    $theme_name = $theme->get('Name');
+    $screenshot = $theme->get_screenshot();
+	$theme_description = $theme->get('Description');
+    $theme_version = $theme->get('Version');
+
+    $customize_url = admin_url('customize.php');
+
+	// Dashboard file
+	$dashboard_url = 'https://raw.githubusercontent.com/LuzukThemes/themes-dashboard/main/dashboard.html';
+	$dashboard_response = wp_remote_get($dashboard_url);
+	$dashboard_html = '';
+
+	if (!is_wp_error($dashboard_response)) {
+		$dashboard_html = wp_remote_retrieve_body($dashboard_response);
+	} else {
+		$dashboard_html = '<div class="notice notice-error"><p>Unable to load Dashboard content from GitHub.</p></div>';
+	}
+
+	// Coupon file
+	$coupon_url = 'https://raw.githubusercontent.com/LuzukThemes/themes-dashboard/main/coupon.html';
+	$coupon_response = wp_remote_get($coupon_url);
+	$coupon_html = '';
+
+	if (!is_wp_error($coupon_response)) {
+		$coupon_html = wp_remote_retrieve_body($coupon_response);
+	} else {
+		$coupon_html = '<div class="notice notice-error"><p>Unable to load Coupon content from GitHub.</p></div>';
+	}
+
+    ob_start(); ?>
+    <div class="wrap">
+        <h1>Themes Dashboard</h1>
+        <div style="display: flex; gap: 30px; margin-top: 30px;">
+
+            <!-- Left Column -->
+            <div style="flex: 1; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                <img src="<?php echo esc_url($screenshot); ?>" alt="Theme Screenshot" style="max-width: 100%; border: 1px solid #ccc;" />
+                <h2 style="margin: 20px 0 30px;"><?php echo esc_html($theme_name); ?></h2>
+				<p><strong>Version:</strong> <?php echo esc_html($theme_version); ?></p>
+                <p><?php echo esc_html($theme_description); ?></p>
+
+                <div style="margin: 15px 0 50px;">
+                    <a href="https://www.luzuk.com/products/garden-wordpress-theme/" target="_blank" class="button" style="background: #0056ff; color: #fff; margin-right: 10px;">Buy Premium</a>
+                    <a href="https://www.luzukdemo.com/demo/coming-soon/" target="_blank" class="button" style="background: orange; color: #fff; margin-right: 10px;">Live Demo</a>
+					<a href="https://www.luzukdemo.com/docs/coming-soon/" target="_blank" class="button" style="background: #006248; color: #fff; margin-right: 10px;">Pro Documentation</a>
+                    <a href="https://www.luzuk.com/products/all-themes-bundle/" target="_blank" class="button" style="background: #ec407a; color: #fff;">Theme Bundle</a>
+                </div>
+
+                <?php echo $dashboard_html; ?>
+
+		</div>
+          
+		<div style="display: flex; gap: 30px; margin-top: 30px; text-align: center;">
+			<div style="flex: 1; margin: 20px 0; padding: 20px; background: #f7f7f7; border: 1px dashed #aaa;">
+				<p style="margin-bottom: 10px;"><strong>Use Coupon Code</strong></p>
+				<?php echo $coupon_html; ?>
+				<a href="https://www.luzuk.com/products/garden-wordpress-theme/" target="_blank" class="button button-primary" style="display: block; padding: 10px; background: #a50171;font-weight: bold; margin-top: 10px;">UPGRADE NOW</a><br>
+			</div>
+			<div style="flex: 2; margin: 20px 0; padding: 20px;"></div>
+		</div>
+    <?php
+    return ob_get_clean();
+}
