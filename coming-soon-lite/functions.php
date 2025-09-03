@@ -232,9 +232,9 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 require get_parent_theme_file_path( '/inc/customizer.php' );
 
-add_action('admin_menu', 'computer_repair_shop_reorder_appearance_menu', 999);
+add_action('admin_menu', 'coming_soon_lite_reorder_appearance_menu', 999);
 
-function computer_repair_shop_reorder_appearance_menu() {
+function coming_soon_lite_reorder_appearance_menu() {
     global $submenu;
 
     if (isset($submenu['themes.php'])) {
@@ -259,9 +259,9 @@ function computer_repair_shop_reorder_appearance_menu() {
 }
 
 // Hook into current_screen to detect if we're on our custom page
-add_action('current_screen', 'computer_repair_shop_hide_admin_notices_on_custom_page');
+add_action('current_screen', 'coming_soon_lite_hide_admin_notices_on_custom_page');
 
-function computer_repair_shop_hide_admin_notices_on_custom_page($screen) {
+function coming_soon_lite_hide_admin_notices_on_custom_page($screen) {
     // Check for our custom page slug
     if ($screen->id === 'appearance_page_themes-dashboard') {
         // Remove all actions that show admin notices
@@ -271,23 +271,23 @@ function computer_repair_shop_hide_admin_notices_on_custom_page($screen) {
     }
 }
 
-add_action('admin_menu', 'computer_repair_shop_add_themes_dashboard_menu');
+add_action('admin_menu', 'coming_soon_lite_add_themes_dashboard_menu');
 
-function computer_repair_shop_add_themes_dashboard_menu() {
+function coming_soon_lite_add_themes_dashboard_menu() {
     add_theme_page(
         'Themes Dashboard',
         'Themes Dashboard',
         'manage_options',
         'themes-dashboard',
-        'computer_repair_shop_themes_dashboard_page'
+        'coming_soon_lite_themes_dashboard_page'
     );
 }
 
-function computer_repair_shop_themes_dashboard_page() {
-    echo computer_repair_shop_render_combined_dashboard();
+function coming_soon_lite_themes_dashboard_page() {
+    echo coming_soon_lite_render_combined_dashboard();
 }
 
-function computer_repair_shop_render_combined_dashboard() {
+function coming_soon_lite_render_combined_dashboard() {
     $theme = wp_get_theme();
     $theme_name = $theme->get('Name');
     $screenshot = $theme->get_screenshot();
@@ -325,6 +325,7 @@ function computer_repair_shop_render_combined_dashboard() {
 
             <!-- Left Column -->
             <div style="flex: 1; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+				<h2 style="margin: 0 0 30px;background: #000;color: #fff;padding: 22px;text-align: center;border-radius: 6px;">Use this coupon code and get 15% discount instantly <span style="background: #ff0000; color: #fff; padding: 5px 10px; border-radius: 5px;margin-left: 10px;">FREEWORDTHEME</span></h2>
                 <img src="<?php echo esc_url($screenshot); ?>" alt="Theme Screenshot" style="max-width: 50%; border: 1px solid #ccc; float: left; margin-right: 20px; border-radius: 8px; border-right-color: #ff0000; border-bottom-color: #ff0000;" />
 				<div style="background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
 					<h2 style="margin: 20px 0 30px;"><?php echo esc_html($theme_name); ?></h2>
@@ -332,9 +333,9 @@ function computer_repair_shop_render_combined_dashboard() {
 					<p><?php echo esc_html($theme_description); ?></p>
 				</div>
                 <div style="margin: 15px 0 50px;">
-                    <a href="https://www.luzukdemo.com/demo/coming-soon/" target="_blank" class="button" style="background: orange; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Live Demo</a>
-					<a href="https://www.luzukdemo.com/docs/coming-soon/" target="_blank" class="button" style="background: #006248; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Pro Documentation</a>
-                    <a href="https://wordpress.org/support/theme/coming-soon-lite/" target="_blank" class="button" style="background: #ec407a; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Need Support</a>
+                    <a href="https://www.luzukdemo.com/demo/coming-soon/" target="_blank" class="button" style="background: #000; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Live Demo</a>
+					<a href="https://www.luzukdemo.com/docs/coming-soon/" target="_blank" class="button" style="background: #000; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Pro Documentation</a>
+                    <a href="https://wordpress.org/support/theme/coming-soon-lite/" target="_blank" class="button" style="background: #000; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Need Support</a>
 					<a href="https://www.luzuk.com/products/coming-soon-wordpress-theme/" target="_blank" class="button" style="background: #0056ff; color: #fff; margin-right: 10px; padding: 6px 24px; font-size: 16px; font-weight: bold">Buy Premium</a>
                 </div>
 
