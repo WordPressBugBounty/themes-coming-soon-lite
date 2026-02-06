@@ -473,6 +473,21 @@ function coming_soon_lite_customize_register( $wp_customize ) {
 		'section' => 'coming_soon_lite_banner_section',
 	));
 
+	$wp_customize->add_setting('coming_soon_lite_banner_opacity',array(
+		'default' => '',
+		'sanitize_callback' => 'coming_soon_lite_sanitize_float'
+	));
+	$wp_customize->add_control('coming_soon_lite_banner_opacity',array(
+		'type' => 'range',
+		'label' => __('Image Opacity','coming-soon-lite'),
+		'section' => 'coming_soon_lite_banner_section',
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 1,
+			'step' => 0.1
+		)
+	));
+
 	$wp_customize->add_setting( 'coming_soon_lite_bannertitle_color', array(
 		'default' => '',
 		'sanitize_callback'	=> 'sanitize_hex_color'

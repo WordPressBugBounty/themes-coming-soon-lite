@@ -178,6 +178,13 @@
 		$coming_soon_lite_custom_style .=' }';
 	}
 
+	$coming_soon_lite_banner_opacity = get_theme_mod('coming_soon_lite_banner_opacity');
+	if( $coming_soon_lite_banner_opacity != ''){
+		$coming_soon_lite_custom_style .=' #slider img {';
+			$coming_soon_lite_custom_style .=' opacity: '.esc_attr($coming_soon_lite_banner_opacity).';';
+		$coming_soon_lite_custom_style .=' }';
+	}
+
 	$coming_soon_lite_bannertitle_color = get_theme_mod('coming_soon_lite_bannertitle_color');
 	if( $coming_soon_lite_bannertitle_color != ''){
 		$coming_soon_lite_custom_style .=' #slider .inner_carousel h1 {';

@@ -4,7 +4,7 @@ Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, custom-
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 0.5.8
+Stable tag: 0.6.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -251,4 +251,16 @@ Coming Soon Lite bundles the following third-party resources:
   - Made some changes.
 
 = 0.5.8 =
+  - Made some changes.
+
+= 0.5.9 =
+  - Added slider image opacity change option in Customizer.
+
+= 0.6.0 =
+  - Fixed some errors.
+
+= 0.6.1 =
+  - Fixed some errors.
+
+= 0.6.2 =
   - Made some changes.
