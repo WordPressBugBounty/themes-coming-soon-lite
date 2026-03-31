@@ -220,6 +220,15 @@ function coming_soon_lite_customize_register( $wp_customize ) {
 		'section' => 'coming_soon_lite_top_bar',
 	)));
 
+	$wp_customize->add_setting( 'coming_soon_lite_toptitlebdr_color', array(
+		'default' => '',
+		'sanitize_callback'	=> 'sanitize_hex_color'
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'coming_soon_lite_toptitlebdr_color', array(
+		'label' => __('Title Border Color', 'coming-soon-lite'),
+		'section' => 'coming_soon_lite_top_bar',
+	)));
+
 	$wp_customize->add_setting( 'coming_soon_lite_toptext_color', array(
 		'default' => '',
 		'sanitize_callback'	=> 'sanitize_hex_color'

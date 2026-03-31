@@ -110,6 +110,13 @@
 		$coming_soon_lite_custom_style .=' }';
 	}
 
+	$coming_soon_lite_toptitlebdr_color = get_theme_mod('coming_soon_lite_toptitlebdr_color');
+	if( $coming_soon_lite_toptitlebdr_color != ''){
+		$coming_soon_lite_custom_style .=' span.info:after {';
+			$coming_soon_lite_custom_style .=' border-color: '.esc_attr($coming_soon_lite_toptitlebdr_color).';';
+		$coming_soon_lite_custom_style .=' }';
+	}
+
 	$coming_soon_lite_toptext_color = get_theme_mod('coming_soon_lite_toptext_color');
 	if( $coming_soon_lite_toptext_color != ''){
 		$coming_soon_lite_custom_style .=' .header-box span a {';
