@@ -4,7 +4,7 @@ Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, custom-
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 0.6.4
+Stable tag: 0.6.5
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -267,3 +267,6 @@ Coming Soon Lite bundles the following third-party resources:
 
 = 0.6.4 =
   - Added color options in customizer.
+
+= 0.6.5 =
+  - Made some changes.
