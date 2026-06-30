@@ -61,7 +61,7 @@ class Coming_Soon_Lite_Customize_Section_Pro extends WP_Customize_Section {
 
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 			<div class="discount-banner" style="background: #fffaeb; border: 2px dashed #ff0000;border-radius: 10px; margin: 10px; padding: 10px;text-align: center;">
-				<p class="discount-banner-text" style="color: #ff0000; font-size: 16px; font-weight: bold; margin: 0; padding: 10px;">
+				<p class="discount-banner-text" style="color: #ff0000; font-size: 22px; font-weight: bold; margin: 0; padding: 10px;">
 					Get Extra Discount
 				</p>
 				<p class="discount-banner-subtext" style="color: #000000;font-size: 14px;margin: 0;padding: 0 10px 10px;line-height: 2;">
