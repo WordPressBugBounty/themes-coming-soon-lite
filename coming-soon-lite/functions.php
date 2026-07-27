@@ -135,12 +135,10 @@ function coming_soon_lite_scripts() {
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
 	if ( is_customize_preview() ) {
-		wp_enqueue_style( 'coming-soon-lite-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'coming-soon-lite-style' ), '1.0' );
-		wp_style_add_data( 'coming-soon-lite-ie9', 'conditional', 'IE 9' );
+		wp_enqueue_style( 'coming-soon-lite-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'coming-soon-lite-basic-style' ), '1.0' );
 	}
 	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'coming-soon-lite-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'coming-soon-lite-style' ), '1.0' );
-	wp_style_add_data( 'coming-soon-lite-ie8', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'coming-soon-lite-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'coming-soon-lite-basic-style' ), '1.0' );
 
 	//font-awesome
 	wp_enqueue_style( 'font-awesome-css', esc_url(get_template_directory_uri()).'/assets/css/fontawesome-all.css' );
@@ -154,7 +152,6 @@ function coming_soon_lite_scripts() {
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5-js', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
-	wp_script_add_data( 'html5-js', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'bootstrap-js', esc_url(get_template_directory_uri()) . '/assets/js/bootstrap.js', array('jquery') );
 
